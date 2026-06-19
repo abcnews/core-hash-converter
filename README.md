@@ -21,13 +21,13 @@ So you can parse strings like:
 And they turn into JavaScript objects:
 
 ```js
-  {
-    stringOne: "Hello",
-    numberOne: 5,
-    lat: -32.3,
-    lng: -141.55,
-    isSomething: true,
-  }
+{
+  stringOne: "Hello",
+  numberOne: 5,
+  lat: -32.3,
+  lng: -141.55,
+  isSomething: true,
+}
 ```
 
 ## Installation
