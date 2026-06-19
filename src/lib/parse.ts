@@ -20,6 +20,7 @@ Into:
 
 type Coerced = boolean | null | number | string;
 
+/** This function parses the string into a record of key-value pairs */
 export function parse(src: string): Record<string, Coerced> {
   return src.split("_").reduce(
     (acc, pair) => {
@@ -33,6 +34,7 @@ export function parse(src: string): Record<string, Coerced> {
   );
 }
 
+/** Coerce the raw string value into a boolean, null, number, or string */
 function coerce(raw: string): Coerced {
   if (raw === "true") return true;
   if (raw === "false") return false;
