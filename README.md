@@ -50,11 +50,12 @@ pnpm dlx jsr add @abcnews/core-hash-converter
 ## Usage
 
 ```js
-import { parse } from "jsr:@abcnews/core-hash-converter";
+import { parse } from "@abcnews/core-hash-converter";
 
 const config = parse(
-  "stringOne:Hello_numberOne:5_lat:-32.3_lng:-141.55_isSomething:true",
+  "stringOne:Hello_numberOne:5_lat:-32.3_lng:-141.55_isSomething:true_nothing:null",
 );
+
 console.log(config);
 ```
 
