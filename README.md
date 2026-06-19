@@ -32,7 +32,7 @@ And they turn into JavaScript objects:
 
 ## Installation
 
-Only on JSR for now. NPM coming soon, probably.
+Only on [JSR](https://jsr.io/) for now. NPM coming soon, probably.
 
 ```bash
 # deno, pnpm 10.9+, and yarn 4.9+ with first class JSR support
