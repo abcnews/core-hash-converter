@@ -8,7 +8,7 @@ Current characters supported, as per [html4](https://www.w3.org/TR/html4/types.h
 
 Or as a [regex](https://regexr.com/):
 
-```
+```regex
 /^[a-z]+[a-z0-9\-_:\.]*$/i
 ```
 
@@ -28,6 +28,34 @@ And they turn into JavaScript objects:
     lng: -141.55,
     isSomething: true,
   }
+```
+
+## Installation
+
+Only on JSR for now. NPM coming soon, probably.
+
+```bash
+# deno, pnpm 10.9+, and yarn 4.9+ with first class JSR support
+deno add jsr:@abcnews/core-hash-converter
+pnpm add jsr:@abcnews/core-hash-converter
+yarn add jsr:@abcnews/core-hash-converter
+
+# npm, bun, and older versions of yarn or pnpm
+npx jsr add @abcnews/core-hash-converter
+bunx jsr add @abcnews/core-hash-converter
+yarn dlx jsr add @abcnews/core-hash-converter
+pnpm dlx jsr add @abcnews/core-hash-converter
+```
+
+## Usage
+
+```js
+import { parse } from "jsr:@abcnews/core-hash-converter";
+
+const config = parse(
+  "stringOne:Hello_numberOne:5_lat:-32.3_lng:-141.55_isSomething:true",
+);
+console.log(config);
 ```
 
 ## Notes
