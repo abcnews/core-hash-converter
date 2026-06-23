@@ -32,7 +32,7 @@ And they turn into JavaScript objects:
 
 ## Installation
 
-Only on [JSR](https://jsr.io/@abcnews/core-hash-converter) for now. NPM coming soon, probably.
+On [JSR](https://jsr.io/@abcnews/core-hash-converter):
 
 ```bash
 # deno, pnpm 10.9+, and yarn 4.9+ with first class JSR support
@@ -45,6 +45,12 @@ npx jsr add @abcnews/core-hash-converter
 bunx jsr add @abcnews/core-hash-converter
 yarn dlx jsr add @abcnews/core-hash-converter
 pnpm dlx jsr add @abcnews/core-hash-converter
+```
+
+Or [NPM](https://www.npmjs.com/package/@abcnews/core-hash-converter):
+
+```bash
+npm install @abcnews/core-hash-converter
 ```
 
 ## Usage
