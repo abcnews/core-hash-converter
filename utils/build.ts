@@ -3,8 +3,8 @@ import { build, emptyDir } from "@deno/dnt";
 await emptyDir("./npm");
 
 await build({
-  entryPoints: ["../src/mod.ts"],
-  outDir: "../npm",
+  entryPoints: ["./src/mod.ts"],
+  outDir: "./npm",
   shims: {
     deno: true,
   },
@@ -22,8 +22,13 @@ await build({
       url: "https://github.com/abcnews/core-hash-converter/issues",
     },
   },
+  compilerOptions: {
+    target: "ES2022",
+    lib: ["ESNext"],
+    // skipLibCheck: true,
+  },
   postBuild() {
-    Deno.copyFileSync("LICENSE", "npm/LICENSE");
+    Deno.copyFileSync("LICENSE.md", "npm/LICENSE.md");
     Deno.copyFileSync("README.md", "npm/README.md");
   },
 });
