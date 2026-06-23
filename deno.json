@@ -4,7 +4,8 @@
   "license": "MIT",
   "exports": "./src/mod.ts",
   "tasks": {
-    "dev": "deno test --watch"
+    "dev": "deno test --watch",
+    "build-npm": "deno run -A utils/build_npm.ts"
   },
   "imports": {
     "@deno/dnt": "jsr:@deno/dnt@^0.42.3",

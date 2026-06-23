@@ -59,6 +59,10 @@ const config = parse(
 console.log(config);
 ```
 
+## Development
+
+Build for NPM with `deno task build-npm 0.1.3` (replacing the version with your version number).
+
 ## Notes
 
 This tool is meant for use with ABC News Digital CSM CoreMedia, but could be helpful for others to use too.
