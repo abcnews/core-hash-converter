@@ -65,6 +65,8 @@ const config = parse(
 console.log(config);
 ```
 
+In a CoreMedia artile you can create a mount point with `#mymount_myNumer:42` and then use mount-utils to select it with `selectMounts('mymount')` and then parse the string with `parseConfigHash(mountEl?.id || "");`.
+
 ## Development
 
 Build for NPM with `deno task build-npm 0.1.3` (replacing the version with your version number).
