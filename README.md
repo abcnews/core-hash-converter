@@ -65,7 +65,7 @@ const config = parse(
 console.log(config);
 ```
 
-In a CoreMedia artile you can create a mount point with `#mymount_myNumer:42` and then use [mount-utils](https://github.com/abcnews/mount-utils) to select it with `selectMounts('mymount')` and then parse the `getMountValue` string with `parseConfigHash(mountEl?.id || "");`.
+In a CoreMedia artile you can create a mount point with `#mymount_myNumer:42` and then use [mount-utils](https://github.com/abcnews/mount-utils) to select it with `selectMounts('mymount')` and then parse the `getMountValue` string with `parse(mountValue)`.
 
 ## Development
 
