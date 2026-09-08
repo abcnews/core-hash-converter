@@ -18,7 +18,7 @@ Into:
 
 */
 
-type Coerced = boolean | null | number | string;
+export type Coerced = boolean | null | number | string;
 
 /** This function parses the string into a record of key-value pairs */
 export function parse(src: string): Record<string, Coerced> {
