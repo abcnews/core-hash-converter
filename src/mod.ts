@@ -1,2 +1,2 @@
-import { parse, type Coerced } from "./lib/parse.ts";
-export { parse, Coerced };
+import { type Coerced, parse } from "./lib/parse.ts";
+export { type Coerced, parse };
