@@ -107,6 +107,6 @@ Deno.test("parse - later keys win", () => {
   assertEquals(parse("key:1_key:2"), { key: 2 });
 });
 
-Deno.test("parse - empty key is allowed", () => {
+Deno.test("parse - empty key is allowed (for some reason)", () => {
   assertEquals(parse(":5"), { "": 5 });
 });
