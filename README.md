@@ -69,7 +69,7 @@ In a CoreMedia artile you can create a mount point with `#mymount_myNumer:42` an
 
 ## Development
 
-Build for NPM with `deno task build-npm 0.1.3` (replacing the version with your version number).
+Build for NPM with `deno task build-npm 0.1.4` (replacing the version with your version number).
 
 ## Notes
 
