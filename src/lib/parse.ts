@@ -6,7 +6,7 @@ Parse strings like:
 
 Into:
 
-```
+```ts
   {
     stringOne: "Hello",
     numberOne: 5,
@@ -16,8 +16,10 @@ Into:
   }
 ```
 
+@module
 */
 
+/** A parsed value: the raw string coerced to a boolean, null, number, or left as a string. */
 export type Coerced = boolean | null | number | string;
 
 /** This function parses the string into a record of key-value pairs */
@@ -34,11 +36,13 @@ export function parse(src: string): Record<string, Coerced> {
   );
 }
 
+const DECIMAL = /^-?(?:\d+\.?\d*|\.\d+)$/;
+
 /** Coerce the raw string value into a boolean, null, number, or string */
 function coerce(raw: string): Coerced {
   if (raw === "true") return true;
   if (raw === "false") return false;
   if (raw === "null") return null;
-  if (raw !== "" && !isNaN(Number(raw))) return Number(raw);
+  if (DECIMAL.test(raw)) return Number(raw);
   return raw;
 }
