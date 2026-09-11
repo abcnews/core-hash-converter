@@ -77,4 +77,4 @@ Then `npm login` with your (ABC approved) NPM account and `npm publish --access 
 
 ## Notes
 
-This tool is meant for use with ABC News Digital CSM CoreMedia, but could be helpful for others to use too.
+This tool is meant for use with ABC News Digital CMS CoreMedia, but could be helpful for others to use too.
