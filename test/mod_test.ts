@@ -32,7 +32,6 @@ Deno.test("parse - full example", () => {
   );
 });
 
-// Edge cases worth covering
 Deno.test("parse - empty string returns empty object", () => {
   assertEquals(parse(""), {});
 });
