@@ -2,6 +2,8 @@ import { build, emptyDir } from "@deno/dnt";
 
 await emptyDir("./npm");
 
+const { version } = JSON.parse(await Deno.readTextFile("./deno.json"));
+
 await build({
   entryPoints: ["./src/mod.ts"],
   outDir: "./npm",
@@ -10,10 +12,20 @@ await build({
   },
   package: {
     name: "@abcnews/core-hash-converter",
-    version: Deno.args[0],
+    version: version,
     description:
       "A utility for converting strings to objects with various encodings structures.",
-    license: "MIT",
+    keywords: [
+      "parse",
+      "parser",
+      "hash",
+      "querystring",
+      "key-value",
+      "coerce",
+      "typescript",
+      "deno",
+    ],
+    license: "Apache-2.0",
     repository: {
       type: "git",
       url: "git+https://github.com/abcnews/core-hash-converter.git",
@@ -25,7 +37,6 @@ await build({
   compilerOptions: {
     target: "ES2022",
     lib: ["ESNext"],
-    // skipLibCheck: true,
   },
   postBuild() {
     Deno.copyFileSync("LICENSE.md", "npm/LICENSE.md");

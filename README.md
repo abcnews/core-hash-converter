@@ -71,7 +71,7 @@ In a CoreMedia artile you can create a mount point with `#mymount_myNumer:42` an
 
 Pushes to `main` with a new version number will automatically be pushed to JSR.
 
-Build for NPM with `deno task build-npm 0.1.4` (replacing the version with your version number).
+Build for NPM with `deno task build-npm` (will read your `deno.json` version number).
 
 Then `npm login` with your (ABC approved) NPM account and `npm publish --access public` to publish.
 
