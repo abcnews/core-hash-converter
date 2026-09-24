@@ -57,8 +57,11 @@ export function parse(src: string): Record<string, Coerced> {
   );
 }
 
-/** Matches plain decimal numbers only — no exponents, hex, or `Infinity`. */
-const DECIMAL = /^-?(?:\d+\.?\d*|\.\d+)$/;
+/**
+ * Matches plain decimal numbers only — no exponents, hex, or `Infinity`.
+ * Also, numbers with leading zeroes stay as strings (useful for hex colours).
+ */
+const DECIMAL = /^-?(?:0|[1-9]\d*)(?:\.\d+)?$|^-?\.\d+$/;
 
 /** Coerce the raw string value into a boolean, null, number, or string */
 function coerce(raw: string): Coerced {
