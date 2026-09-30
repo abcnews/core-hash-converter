@@ -84,7 +84,7 @@ Only plain decimal numbers are coerced. These all stay strings:
 |-------|-----|
 | `007`, `00000066` | leading zeros are preserved, so zero-padded ids and hex colours survive |
 | `1e3`, `1E3` | exponent notation |
-| `0x10`, `0b101`, `0o17` | hex, binary and octal literals |
+| `0x10`, `0b101`, `0o17` | hex, binary, and octal literals |
 | `Infinity`, `NaN` | not plain decimals |
 | `+5` | leading plus |
 | `5.` | trailing dot |
