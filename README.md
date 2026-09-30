@@ -72,7 +72,7 @@ In a CoreMedia artile you can create a mount point with `#mymount_myNumer:42` an
 Values are coerced based on what they look like:
 
 | Value | Becomes | Type |
-|---|---|---|
+|-------|---------|------|
 | `true` / `false` | `true` / `false` | boolean |
 | `null` | `null` | null |
 | `5`, `-32.3`, `.5` | `5`, `-32.3`, `0.5` | number |
@@ -81,14 +81,13 @@ Values are coerced based on what they look like:
 Only plain decimal numbers are coerced. These all stay strings:
 
 | Value | Why |
-|---|---|
+|-------|-----|
 | `007`, `00000066` | leading zeros are preserved, so zero-padded ids and hex colours survive |
 | `1e3`, `1E3` | exponent notation |
 | `0x10`, `0b101`, `0o17` | hex, binary and octal literals |
 | `Infinity`, `NaN` | not plain decimals |
 | `+5` | leading plus |
 | `5.` | trailing dot |
-| `" "` | whitespace |
 
 The literals are case sensitive: `True` and `NULL` stay strings.
 
