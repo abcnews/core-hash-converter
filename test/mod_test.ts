@@ -58,6 +58,9 @@ Deno.test("parse - values that stay strings, not numbers", () => {
   assertEquals(parse("value:0b101"), { value: "0b101" });
   assertEquals(parse("value:0o17"), { value: "0o17" });
   assertEquals(parse("value:+5"), { value: "+5" });
+  assertEquals(parse("value:5."), { value: "5." });
+  assertEquals(parse("value:007"), { value: "007" });
+  assertEquals(parse("value:00000066"), { value: "00000066" });
 });
 
 // No underscores allowed in values as they are our delimiter.
@@ -85,8 +88,6 @@ Deno.test("parse - decimal shapes that do coerce", () => {
   assertEquals(parse("value:-0"), { value: -0 });
   assertEquals(parse("value:.5"), { value: 0.5 });
   assertEquals(parse("value:-.5"), { value: -0.5 });
-  assertEquals(parse("value:5."), { value: 5 });
-  assertEquals(parse("value:007"), { value: 7 });
   assertEquals(parse("value:100"), { value: 100 });
 });
 

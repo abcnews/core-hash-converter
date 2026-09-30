@@ -23,6 +23,9 @@ contain colons but not underscores.
 decimal numbers become numbers. Everything else stays a string, including
 `"1e3"`, `"0x10"` and `"Infinity"`.
 
+Values with leading zeros stay strings too (`"007"`, `"00000066"`), so
+zero-padded ids and hex colours survive intact.
+
 @module
 */
 
