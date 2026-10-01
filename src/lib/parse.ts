@@ -50,11 +50,22 @@ export type Coerced = boolean | null | number | string;
 export function parse(src: string): Record<string, Coerced> {
   const out: Record<string, Coerced> = Object.create(null); // Actual {} (no prototype)
 
-  for (const pair of src.split("_")) {
-    const i = pair.indexOf(":");
-    if (i === -1) continue;
+  // "a:1_b:2" becomes ["a:1", "b:2"]
+  const splitStrings = src.split("_");
 
-    out[pair.slice(0, i)] = coerce(pair.slice(i + 1));
+  for (const pair of splitStrings) {
+    const separatorIndex = pair.indexOf(":");
+
+    // No colon means this isn't a key-value pair, so skip it
+    if (separatorIndex === -1) continue;
+
+    // Only the first colon splits, so values may contain colons
+    // Slice string at the index. Return key and rawValue
+    const key = pair.slice(0, separatorIndex);
+    const rawValue = pair.slice(separatorIndex + 1);
+
+    // Coerce value and write to object
+    out[key] = coerce(rawValue);
   }
 
   return out;
