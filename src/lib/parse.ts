@@ -31,6 +31,7 @@ zero-padded ids and hex colours survive intact.
 
 /** A parsed value: the raw string coerced to a boolean, null, number, or left as a string. */
 export type Coerced = boolean | null | number | string;
+export type Parsed = Record<string, Coerced | Coerced[]>;
 
 /**
  * Parses a delimited key-value string into a record of coerced values.
@@ -47,8 +48,8 @@ export type Coerced = boolean | null | number | string;
  * // { lat: -32.3, lng: -141.55, label: null }
  * ```
  */
-export function parse(src: string): Record<string, Coerced> {
-  const out: Record<string, Coerced> = Object.create(null); // Actual {} (no prototype)
+export function parse(src: string): Parsed {
+  const out: Parsed = Object.create(null); // Actual {} (no prototype)
 
   // "a:1_b:2" becomes ["a:1", "b:2"]
   const splitStrings = src.split("_");
@@ -63,9 +64,23 @@ export function parse(src: string): Record<string, Coerced> {
     // Slice string at the index. Return key and rawValue
     const key = pair.slice(0, separatorIndex);
     const rawValue = pair.slice(separatorIndex + 1);
+    const coercedValue = coerce(rawValue);
 
-    // Coerce value and write to object
-    out[key] = coerce(rawValue);
+    // Multiple keys turn into arrays
+    // ------------------------------
+
+    const existing = out[key];
+
+    if (existing === undefined) {
+      // Key doesn't exist, set value
+      out[key] = coercedValue;
+    } else if (Array.isArray(existing)) {
+      // Already an array, push value
+      existing.push(coercedValue);
+    } else {
+      // Key exists, turn into array
+      out[key] = [existing, coercedValue];
+    }
   }
 
   return out;
