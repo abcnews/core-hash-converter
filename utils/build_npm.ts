@@ -33,6 +33,9 @@ await build({
     bugs: {
       url: "https://github.com/abcnews/core-hash-converter/issues",
     },
+    "publishConfig": {
+      "access": "public",
+    },
   },
   compilerOptions: {
     target: "ES2022",
