@@ -121,7 +121,7 @@ Pushes to `main` with a new version number will automatically be pushed to JSR.
 
 Build for NPM with `deno task build-npm` (will read your `deno.json` version number).
 
-Then `npm login` with your (ABC approved) NPM account and `npm publish --access public` to publish.
+Then `npm login` with your (ABC approved) NPM account and `npm publish` to publish.
 
 ## Notes
 
