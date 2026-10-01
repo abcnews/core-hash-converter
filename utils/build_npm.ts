@@ -25,7 +25,7 @@ await build({
       "typescript",
       "deno",
     ],
-    license: "Apache-2.0",
+    license: "MIT",
     repository: {
       type: "git",
       url: "git+https://github.com/abcnews/core-hash-converter.git",
