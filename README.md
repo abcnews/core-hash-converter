@@ -91,6 +91,24 @@ Only plain decimal numbers are coerced. These all stay strings:
 
 The literals are case sensitive: `True` and `NULL` stay strings.
 
+## Repeated keys
+
+A key that appears more than once collects its values into an array:
+
+```js
+parse("tag:birds_tag:marine_tag:coastal");
+// { tag: ["birds", "marine", "coastal"] }
+```
+
+A key that appears once is **not** wrapped in an array:
+
+```js
+parse("tag:birds");
+// { tag: "birds" }
+```
+
+Values are not deduplicated, and may be of mixed types.
+
 ## Limitations
 
 - **Values cannot contain underscores.** `_` is the pair delimiter, so `value:1_000` parses as `{ value: 1 }` and the `000` is dropped.

@@ -103,10 +103,31 @@ Deno.test("parse - only the first colon splits", () => {
   assertEquals(parse("time:12:30"), { time: "12:30" });
 });
 
-Deno.test("parse - later keys win", () => {
-  assertEquals(parse("key:1_key:2"), { key: 2 });
-});
-
 Deno.test("parse - empty key is allowed (for some reason)", () => {
   assertEquals(parse(":5"), { "": 5 });
+});
+
+Deno.test("parse - repeated keys collect into an array", () => {
+  assertEquals(parse("key:1_key:2"), { key: [1, 2] });
+  assertEquals(parse("anArray:1_anArray:2_anArray:3"), { anArray: [1, 2, 3] });
+});
+
+Deno.test("parse - repeated keys of mixed types", () => {
+  assertEquals(parse("a:1_a:hello_a:true"), { a: [1, "hello", true] });
+});
+
+Deno.test("parse - repeated keys are not deduplicated", () => {
+  assertEquals(parse("a:1_a:1"), { a: [1, 1] });
+});
+
+Deno.test("parse - a single occurrence is not an array", () => {
+  assertEquals(parse("a:1"), { a: 1 });
+});
+
+Deno.test("parse - repeated null values", () => {
+  assertEquals(parse("a:null_a:null"), { a: [null, null] });
+});
+
+Deno.test("parse - arrays interleaved with other keys", () => {
+  assertEquals(parse("a:1_b:x_a:2_a:3"), { a: [1, 2, 3], b: "x" });
 });
