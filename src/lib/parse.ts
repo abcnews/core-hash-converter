@@ -48,16 +48,16 @@ export type Coerced = boolean | null | number | string;
  * ```
  */
 export function parse(src: string): Record<string, Coerced> {
-  return src.split("_").reduce(
-    (acc, pair) => {
-      const i = pair.indexOf(":");
-      if (i === -1) return acc;
-      const key = pair.slice(0, i);
-      const raw = pair.slice(i + 1);
-      return { ...acc, [key]: coerce(raw) };
-    },
-    {} as Record<string, Coerced>,
-  );
+  const out: Record<string, Coerced> = Object.create(null); // Actual {} (no prototype)
+
+  for (const pair of src.split("_")) {
+    const i = pair.indexOf(":");
+    if (i === -1) continue;
+
+    out[pair.slice(0, i)] = coerce(pair.slice(i + 1));
+  }
+
+  return out;
 }
 
 /**
