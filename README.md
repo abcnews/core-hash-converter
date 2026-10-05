@@ -1,6 +1,6 @@
 # core-hash-converter
 
-Converts a CoreMedia #hashstring into a config object using all available characters.
+Converts a CoreMedia #hashstring into a config object using all available characters. Similar to [alternating-case-to-object](https://github.com/abcnews/alternating-case-to-object) but with more flexibility.
 
 Current characters supported, as per [html4](https://www.w3.org/TR/html4/types.html) spec:
 
