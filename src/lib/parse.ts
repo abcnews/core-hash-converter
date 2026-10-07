@@ -60,8 +60,8 @@ export function parse(src: string): Parsed {
     // No colon means this isn't a key-value pair, so skip it
     if (separatorIndex === -1) continue;
 
-    // Only the first colon splits, so values may contain colons
-    // Slice string at the index. Return key and rawValue
+    // Only the first colon splits, so values may contain colons.
+    // Slice string at the index. Return key and rawValue.
     const key = pair.slice(0, separatorIndex);
     const rawValue = pair.slice(separatorIndex + 1);
     const coercedValue = coerce(rawValue);
