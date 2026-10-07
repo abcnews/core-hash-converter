@@ -129,6 +129,6 @@ This tool is meant for use with ABC News Digital CMS CoreMedia, but could be hel
 
 ### Usage in CoreMedia warning
 
-Due to an [issue with Presentation Layer](https://github.com/abcnews/alternating-case-to-object/pull/18) the text following the second colon `:` or dash `-` in a hash string may be parsed through the [alternating-case-to-object](https://github.com/abcnews/alternating-case-to-object) library and if an error is thrown (type mismatch etc) the mount point will fail to render on the page. So strings like `x:x:AbA` and `"mymount_foo:foo_bar:AbA"` and also `x-x-AbA` etc will not render due to the trailing repeated uppercase key "A" being `null` and throwing a type mismatch error.
+Due to an [issue with Presentation Layer](https://github.com/abcnews/alternating-case-to-object/pull/18) the text following the second colon `:` or dash `-` in a hash string is parsed through the [alternating-case-to-object](https://github.com/abcnews/alternating-case-to-object) library and if an error is thrown (type mismatch etc) the mount point will fail to render on the page. So strings like `x:x:AbA` and `"mymount_foo:foo_bar:AbA"` and also `x-x-AbA` etc will not render due to the trailing repeated uppercase key "A" being `null` and throwing a type mismatch error.
 
 TL;DR avoid mixed case (eg. base62 encoding etc) for text after the 2nd colon : or dash - and before the 3rd colon or dash, at least until this issue is fixed in PL.
